@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -10,502 +8,64 @@
 
     <title>Mahira Fast Food POS</title>
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <link rel="manifest" href="/manifest.json">
-
-<meta name="theme-color" content="#ff6b00">
-
-<meta name="mobile-web-app-capable" content="yes">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-
-<meta
-  name="apple-mobile-web-app-status-bar-style"
-  content="default"
->
-
-<meta
-  name="apple-mobile-web-app-title"
-  content="Mahira POS"
->
-
-  
-
 </head>
 
 <body>
 
-    <!-- ================= LOGIN ================= -->
+<!-- ================= LOGIN ================= -->
 
-    <div id="loginPage"
-         class="login-page">
+<div id="loginPage" class="login-page">
 
-        <div class="login-card">
+    <div class="login-card">
 
-            <div class="logo">
-                🍽️
-            </div>
+        <div class="logo">🍽️</div>
 
-            <h1>Mahira Fast Food</h1>
+        <h1>Mahira Fast Food</h1>
 
-            <p>POS Management System</p>
+        <p>POS Management System</p>
 
-            <input
-                type="email"
-                id="loginEmail"
-                placeholder="Email">
+        <input
+            id="loginEmail"
+            type="email"
+            placeholder="Email">
 
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Password">
+        <input
+            id="loginPassword"
+            type="password"
+            placeholder="Password">
 
-            <button onclick="login()">
-                🔐 Login
-            </button>
-
-            <p id="loginMessage"
-               class="message">
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= APP ================= -->
-
-    <div id="app"
-         style="display:none">
-
-      <!-- ================= NOTIFICATIONS ================= -->
-
-<div id="notificationPanel" class="notification-panel">
-
-    <div class="notification-header">
-
-        <h3>🔔 Notifications</h3>
-
-        <button onclick="closeNotifications()">
-            ✕
+        <button class="primary-btn" onclick="login()">
+            🔐 Login
         </button>
 
-    </div>
-
-    <div id="notificationList">
-
-        <p class="empty-notification">
-            No notifications
-        </p>
+        <p id="loginMessage" class="message"></p>
 
     </div>
 
 </div>
 
 
-        <!-- ================= POS ================= -->
+<!-- ================= APP ================= -->
 
-        <section id="posPage"
-                 class="app-page"
-                 style="display:none">
+<div id="app" style="display:none">
 
-            <div class="page-header">
 
-                <button onclick="closePOS()">
-                    ← Back
-                </button>
+<!-- ================= HEADER ================= -->
 
-                <h2>🛒 New Sale</h2>
-
-            </div>
-
-
-            <input
-                type="text"
-                id="posSearch"
-                class="pos-search"
-                placeholder="🔍 Search food..."
-                oninput="renderPOSProducts()">
-
-
-            <div id="posProducts"
-                 class="pos-products">
-            </div>
-
-
-            <div class="cart-box">
-
-                <h3>🛒 Cart</h3>
-
-                <div id="cartItems"></div>
-
-
-                <div class="cart-total">
-
-                    <span>Total</span>
-
-                    <strong id="cartTotal">
-                        ₹0
-                    </strong>
-
-                </div>
-
-
-                <button
-                    class="primary-btn"
-                    onclick="openSaleCheckout()">
-
-                    COMPLETE SALE
-
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= PRODUCTS ================= -->
-
-        <section id="productsPage"
-                 class="app-page"
-                 style="display:none">
-
-            <div class="page-header">
-
-                <button onclick="closeAppPage()">
-                    ← Back
-                </button>
-
-                <h2>📦 Products</h2>
-
-            </div>
-
-
-            <div class="form-card">
-
-                <input
-                    id="productName"
-                    type="text"
-                    placeholder="Product name">
-
-
-                <input
-                    id="productPrice"
-                    type="number"
-                    placeholder="Price"
-                    min="0"
-                    step="0.01">
-
-
-                <input
-                    id="productStock"
-                    type="number"
-                    placeholder="Stock"
-                    min="0">
-
-
-                <!-- PRODUCT IMAGE -->
-
-                <label>
-                    Product Image
-                </label>
-
-                <input
-                    id="productImage"
-                    type="file"
-                    accept="image/*">
-
-
-                <button
-                    class="primary-btn"
-                    onclick="addFirebaseProduct()">
-
-                    + Add Product
-
-                </button>
-
-            </div>
-
-
-            <div id="productManagementList"></div>
-
-        </section>
-
-
-        <!-- ================= STAFF ================= -->
-
-        <section id="staffPage"
-                 class="app-page"
-                 style="display:none">
-
-            <div class="page-header">
-
-                <button onclick="closeAppPage()">
-                    ← Back
-                </button>
-
-                <h2>👥 Staff</h2>
-
-            </div>
-
-
-            <div class="form-card">
-
-                <input
-                    id="newStaffName"
-                    type="text"
-                    placeholder="Staff name">
-
-
-                <input
-                    id="newStaffEmail"
-                    type="email"
-                    placeholder="Staff email">
-
-
-                <input
-                    id="newStaffPassword"
-                    type="password"
-                    placeholder="Temporary password">
-
-
-                <input
-                    id="newStaffPhone"
-                    type="tel"
-                    placeholder="Phone">
-
-
-                <select id="newStaffRole">
-
-                    <option value="cashier">
-                        Cashier
-                    </option>
-
-                    <option value="manager">
-                        Manager
-                    </option>
-
-                    <option value="kitchen">
-                        Kitchen
-                    </option>
-
-                </select>
-
-
-                <select id="newStaffShift">
-
-                    <option value="Morning">
-                        Morning
-                    </option>
-
-                    <option value="Afternoon">
-                        Afternoon
-                    </option>
-
-                    <option value="Evening">
-                        Evening
-                    </option>
-
-                    <option value="Full Day">
-                        Full Day
-                    </option>
-
-                </select>
-
-
-                <button
-                    class="primary-btn"
-                    onclick="addFirebaseStaff()">
-
-                    + Add Staff
-
-                </button>
-
-            </div>
-
-
-            <div id="staffManagementList"></div>
-
-        </section>
-
-
-        <!-- ================= REPORTS ================= -->
-
-        <section id="reportsPage"
-                 class="app-page"
-                 style="display:none">
-
-            <div class="page-header">
-
-                <button onclick="closeAppPage()">
-                    ← Back
-                </button>
-
-                <h2>📊 Reports</h2>
-
-            </div>
-
-
-            <div class="report-card">
-
-                <h3>Today's Sales</h3>
-
-                <strong id="reportTodaySales">
-                    ₹0
-                </strong>
-
-            </div>
-
-
-            <div class="report-card">
-
-                <h3>Today's Orders</h3>
-
-                <strong id="reportTodayOrders">
-                    0
-                </strong>
-
-            </div>
-
-
-            <div class="report-card">
-
-                <h3>Staff Sales</h3>
-
-                <div id="staffSalesReport">
-                </div>
-
-            </div>
-
-
-            <div class="report-card">
-
-                <h3>Payment Summary</h3>
-
-                <div id="paymentReport">
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CHECKOUT ================= -->
-
-        <div id="saleCheckout"
-             class="modal">
-
-            <div class="modal-box">
-
-                <h2>
-                    Complete Sale
-                </h2>
-
-
-                <h1 id="checkoutAmount">
-                    ₹0
-                </h1>
-
-
-                <label>
-                    Staff
-                </label>
-
-
-                <select id="checkoutStaff">
-                </select>
-
-
-                <h3>
-                    Payment
-                </h3>
-
-
-                <div class="payment-buttons">
-
-                    <button
-                        id="cashPayment"
-                        onclick="setPayment('Cash')">
-
-                        💵 Cash
-
-                    </button>
-
-
-                    <button
-                        id="upiPayment"
-                        onclick="setPayment('UPI')">
-
-                        📱 UPI
-
-                    </button>
-
-                </div>
-
-
-                <button
-                    class="primary-btn"
-                    onclick="completeFirebaseSale()">
-
-                    ✓ COMPLETE SALE
-
-                </button>
-
-
-                <button
-                    class="cancel-btn"
-                    onclick="closeSaleCheckout()">
-
-                    Cancel
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= ORDERS ================= -->
-
-        <section id="ordersPage"
-                 class="app-page"
-                 style="display:none">
-
-            <div class="page-header">
-
-                <button onclick="closeAppPage()">
-                    ← Back
-                </button>
-
-                <h2>🧾 Orders</h2>
-
-            </div>
-
-
-            <div id="firebaseOrdersList">
-            </div>
-
-        </section>
-
-
-        <!-- ================= HEADER ================= -->
-
-      <header class="header">
+<header class="header">
 
     <div>
 
-        <h2>
-            🍽️ Mahira Fast Food
-        </h2>
+        <h2>🍽️ Mahira Fast Food</h2>
 
         <small id="userRole">
             Loading...
         </small>
 
     </div>
-
 
     <div class="header-actions">
 
@@ -521,7 +81,6 @@
 
         </button>
 
-
         <button
             class="logout"
             onclick="logout()">
@@ -532,146 +91,578 @@
 
     </div>
 
-      </header>
-        <!-- ================= DASHBOARD ================= -->
-
-        <main>
-
-            <div class="welcome">
-
-                <h2>
-                    Dashboard
-                </h2>
-
-                <p id="welcomeUser">
-                    Welcome
-                </p>
-
-            </div>
+</header>
 
 
-            <div class="dashboard-grid">
+<!-- ================= DASHBOARD ================= -->
 
+<main id="dashboardPage">
 
-                <div class="dashboard-card">
+    <div class="welcome">
 
-                    <span>💰</span>
+        <h2>Dashboard</h2>
 
-                    <h3>
-                        Today's Sales
-                    </h3>
-
-                    <strong id="todaySales">
-                        ₹0
-                    </strong>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <span>🧾</span>
-
-                    <h3>
-                        Orders
-                    </h3>
-
-                    <strong id="todayOrders">
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <span>📦</span>
-
-                    <h3>
-                        Products
-                    </h3>
-
-                    <strong id="productCount">
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <span>👥</span>
-
-                    <h3>
-                        Staff
-                    </h3>
-
-                    <strong id="staffCount">
-                        0
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= MENU ================= -->
-
-            <div class="menu-grid">
-
-                <button onclick="openPOS()">
-
-                    🛒
-                    <br>
-
-                    New Sale
-
-                </button>
-
-
-                <button onclick="openProducts()">
-
-                    📦
-                    <br>
-
-                    Products
-
-                </button>
-
-
-                <button onclick="openStaff()">
-
-                    👥
-                    <br>
-
-                    Staff
-
-                </button>
-
-
-                <button onclick="openReports()">
-
-                    📊
-                    <br>
-
-                    Reports
-
-                </button>
-
-            </div>
-
-        </main>
+        <p id="welcomeUser">
+            Welcome
+        </p>
 
     </div>
 
 
-    <!-- ================= FIREBASE ================= -->
+    <div class="dashboard-grid">
 
-    <script
-        type="module"
-        src="main.js">
-    </script>
+        <div class="dashboard-card">
+
+            <span>💰</span>
+
+            <h3>Today's Sales</h3>
+
+            <strong id="todaySales">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <span>🧾</span>
+
+            <h3>Completed Orders</h3>
+
+            <strong id="todayOrders">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <span>⏳</span>
+
+            <h3>Pending Orders</h3>
+
+            <strong id="pendingOrders">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <span>🍽️</span>
+
+            <h3>Ready Orders</h3>
+
+            <strong id="readyOrders">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+        <button onclick="openPOS()">
+            🛒
+            <br>
+            New Sale
+        </button>
+
+        <button onclick="openKitchen()">
+            👨‍🍳
+            <br>
+            Kitchen
+        </button>
+
+        <button onclick="openOrders()">
+            🧾
+            <br>
+            Orders
+        </button>
+
+        <button onclick="openProducts()">
+            📦
+            <br>
+            Products
+        </button>
+
+        <button onclick="openStaff()">
+            👥
+            <br>
+            Staff
+        </button>
+
+        <button onclick="openReports()">
+            📊
+            <br>
+            Reports
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- ================================================= -->
+<!-- NEW SALE -->
+<!-- ================================================= -->
+
+<section
+    id="posPage"
+    class="app-page"
+    style="display:none">
+
+    <div class="page-header">
+
+        <button onclick="closeAppPage()">
+            ← Back
+        </button>
+
+        <h2>
+            🛒 New Sale
+        </h2>
+
+    </div>
+
+
+    <input
+        id="posSearch"
+        class="pos-search"
+        type="text"
+        placeholder="🔍 Search food..."
+        oninput="renderPOSProducts()">
+
+
+    <div
+        id="posProducts"
+        class="pos-products">
+    </div>
+
+
+    <div class="cart-box">
+
+        <h3>
+            🛒 Current Order
+        </h3>
+
+        <div id="cartItems"></div>
+
+
+        <div class="cart-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="sendOrderToKitchen()">
+
+            👨‍🍳 SEND TO KITCHEN
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- KITCHEN -->
+<!-- ================================================= -->
+
+<section
+    id="kitchenPage"
+    class="app-page"
+    style="display:none">
+
+    <div class="page-header">
+
+        <button onclick="closeAppPage()">
+            ← Back
+        </button>
+
+        <h2>
+            👨‍🍳 Kitchen Orders
+        </h2>
+
+    </div>
+
+
+    <div
+        id="kitchenOrdersList"
+        class="orders-container">
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ORDERS -->
+<!-- ================================================= -->
+
+<section
+    id="ordersPage"
+    class="app-page"
+    style="display:none">
+
+    <div class="page-header">
+
+        <button onclick="closeAppPage()">
+            ← Back
+        </button>
+
+        <h2>
+            🧾 Orders
+        </h2>
+
+    </div>
+
+
+    <div
+        id="ordersList"
+        class="orders-container">
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- PRODUCTS -->
+<!-- ================================================= -->
+
+<section
+    id="productsPage"
+    class="app-page"
+    style="display:none">
+
+    <div class="page-header">
+
+        <button onclick="closeAppPage()">
+            ← Back
+        </button>
+
+        <h2>
+            📦 Products
+        </h2>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <input
+            id="productName"
+            type="text"
+            placeholder="Product name">
+
+
+        <input
+            id="productPrice"
+            type="number"
+            placeholder="Price">
+
+
+        <input
+            id="productStock"
+            type="number"
+            placeholder="Stock">
+
+
+        <input
+            id="productImage"
+            type="file"
+            accept="image/*">
+
+
+        <button
+            class="primary-btn"
+            onclick="addFirebaseProduct()">
+
+            + Add Product
+
+        </button>
+
+    </div>
+
+
+    <div id="productManagementList"></div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- STAFF -->
+<!-- ================================================= -->
+
+<section
+    id="staffPage"
+    class="app-page"
+    style="display:none">
+
+    <div class="page-header">
+
+        <button onclick="closeAppPage()">
+            ← Back
+        </button>
+
+        <h2>
+            👥 Staff
+        </h2>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <input
+            id="newStaffName"
+            type="text"
+            placeholder="Staff name">
+
+
+        <input
+            id="newStaffEmail"
+            type="email"
+            placeholder="Staff email">
+
+
+        <input
+            id="newStaffPassword"
+            type="password"
+            placeholder="Temporary password">
+
+
+        <input
+            id="newStaffPhone"
+            type="tel"
+            placeholder="Phone">
+
+
+        <select id="newStaffRole">
+
+            <option value="cashier">
+                Cashier
+            </option>
+
+            <option value="manager">
+                Manager
+            </option>
+
+            <option value="kitchen">
+                Kitchen
+            </option>
+
+        </select>
+
+
+        <button
+            class="primary-btn"
+            onclick="addFirebaseStaff()">
+
+            + Add Staff
+
+        </button>
+
+    </div>
+
+
+    <div id="staffManagementList"></div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- REPORTS -->
+<!-- ================================================= -->
+
+<section
+    id="reportsPage"
+    class="app-page"
+    style="display:none">
+
+    <div class="page-header">
+
+        <button onclick="closeAppPage()">
+            ← Back
+        </button>
+
+        <h2>
+            📊 Reports
+        </h2>
+
+    </div>
+
+
+    <div class="report-card">
+
+        <h3>
+            Today's Sales
+        </h3>
+
+        <strong id="reportTodaySales">
+            ₹0
+        </strong>
+
+    </div>
+
+
+    <div class="report-card">
+
+        <h3>
+            Completed Orders
+        </h3>
+
+        <strong id="reportTodayOrders">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="report-card">
+
+        <h3>
+            Staff Sales
+        </h3>
+
+        <div id="staffSalesReport"></div>
+
+    </div>
+
+
+    <div class="report-card">
+
+        <h3>
+            Payment Summary
+        </h3>
+
+        <div id="paymentReport"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- BILL CONFIRM MODAL -->
+<!-- ================================================= -->
+
+<div
+    id="billModal"
+    class="modal">
+
+    <div class="modal-box">
+
+        <h2>
+            💰 Confirm Billing
+        </h2>
+
+
+        <h1 id="billAmount">
+            ₹0
+        </h1>
+
+
+        <p id="billOrderNumber">
+            Order
+        </p>
+
+
+        <div class="payment-buttons">
+
+            <button
+                id="cashPayment"
+                onclick="setPayment('Cash')">
+
+                💵 Cash
+
+            </button>
+
+
+            <button
+                id="upiPayment"
+                onclick="setPayment('UPI')">
+
+                📱 UPI
+
+            </button>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="confirmBill()">
+
+            ✅ CONFIRM BILL
+
+        </button>
+
+
+        <button
+            class="cancel-btn"
+            onclick="closeBillModal()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- NOTIFICATION PANEL -->
+<!-- ================================================= -->
+
+<div
+    id="notificationPanel"
+    class="notification-panel">
+
+    <div class="notification-header">
+
+        <h3>
+            🔔 Notifications
+        </h3>
+
+        <button onclick="closeNotifications()">
+            ✕
+        </button>
+
+    </div>
+
+
+    <div id="notificationList">
+
+        <p class="empty-notification">
+            No notifications
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script type="module" src="main.js"></script>
 
 </body>
-
 </html>
