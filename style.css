@@ -1,0 +1,1019 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f6fa;
+    color:#222;
+}
+
+
+/* LOGIN */
+
+.login-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:#111827;
+
+}
+
+
+.login-card{
+
+    width:100%;
+
+    max-width:400px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+}
+
+
+.logo{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:38px;
+
+    background:#fef3c7;
+
+    border-radius:50%;
+
+}
+
+
+.login-card h1{
+
+    margin-top:15px;
+
+    font-size:24px;
+
+}
+
+
+.login-card p{
+
+    color:#777;
+
+    margin:8px 0 20px;
+
+}
+
+
+.login-card input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    outline:none;
+
+}
+
+
+.login-card button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#16a34a;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.message{
+
+    margin-top:12px;
+
+    color:#dc2626 !important;
+
+}
+
+
+/* HEADER */
+
+.header{
+
+    background:#111827;
+
+    color:white;
+
+    padding:17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+.header small{
+
+    color:#cbd5e1;
+
+}
+
+
+.logout{
+
+    background:#374151;
+
+    color:white;
+
+    border:0;
+
+    padding:10px 15px;
+
+    border-radius:9px;
+
+}
+
+
+/* MAIN */
+
+main{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+.welcome{
+
+    margin-bottom:20px;
+
+}
+
+
+.welcome p{
+
+    color:#777;
+
+    margin-top:5px;
+
+}
+
+
+/* DASHBOARD */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+
+.dashboard-card{
+
+    background:white;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 3px 10px #0000000b;
+
+}
+
+
+.dashboard-card span{
+
+    font-size:25px;
+
+}
+
+
+.dashboard-card h3{
+
+    margin-top:10px;
+
+    color:#6b7280;
+
+    font-size:13px;
+
+}
+
+
+.dashboard-card strong{
+
+    display:block;
+
+    margin-top:7px;
+
+    font-size:24px;
+
+    color:#16a34a;
+
+}
+
+
+/* MENU */
+
+.menu-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+
+.menu-grid button{
+
+    background:white;
+
+    border:0;
+
+    padding:22px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 3px 10px #0000000b;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.menu-grid button:first-line{
+
+    font-size:25px;
+
+}
+
+
+@media(min-width:700px){
+
+    .dashboard-grid{
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+    }
+
+
+    .menu-grid{
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+    }
+
+}
+/* =========================
+   APP PAGES
+========================= */
+
+.app-page{
+    max-width:1000px;
+    margin:auto;
+    padding:18px;
+}
+
+.page-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.page-header button{
+    border:0;
+    background:white;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.page-header h2{
+    font-size:21px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.pos-search{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+
+/* =========================
+   POS PRODUCTS
+========================= */
+
+.pos-products{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.pos-product{
+    background:white;
+    padding:12px;
+    border-radius:15px;
+    box-shadow:0 3px 10px #0000000b;
+}
+
+.pos-product img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.pos-product .food-icon{
+    height:120px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    background:#f3f4f6;
+    border-radius:10px;
+}
+
+.pos-product h3{
+    margin-top:10px;
+}
+
+.pos-product .price{
+    color:#16a34a;
+    font-weight:bold;
+    margin:5px 0;
+}
+
+.pos-product .stock{
+    color:#777;
+    font-size:12px;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+.cart-box{
+    background:white;
+    margin-top:18px;
+    padding:16px;
+    border-radius:16px;
+}
+
+.cart-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-controls{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.cart-controls button{
+    width:28px;
+    height:28px;
+    border:0;
+    border-radius:7px;
+    background:#e5e7eb;
+}
+
+.cart-total{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    font-size:20px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    background:#16a34a;
+    color:white;
+    border:0;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.cancel-btn{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#e5e7eb;
+    border:0;
+    border-radius:10px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-card{
+    background:white;
+    padding:16px;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.form-card input,
+.form-card select,
+.modal-box select{
+    width:100%;
+    padding:13px;
+    margin-bottom:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+
+/* =========================
+   PRODUCT MANAGEMENT
+========================= */
+
+.management-item{
+    background:white;
+    padding:14px;
+    border-radius:14px;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.management-item img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.management-info{
+    flex:1;
+}
+
+.management-info h3{
+    margin-bottom:4px;
+}
+
+.management-info p{
+    color:#777;
+    font-size:13px;
+}
+
+
+/* =========================
+   STAFF
+========================= */
+
+.staff-item{
+    background:white;
+    padding:15px;
+    border-radius:14px;
+    margin-bottom:10px;
+}
+
+.staff-item h3{
+    margin-bottom:5px;
+}
+
+.staff-item p{
+    color:#777;
+    font-size:13px;
+}
+
+
+/* =========================
+   REPORTS
+========================= */
+
+.report-card{
+    background:white;
+    padding:18px;
+    border-radius:15px;
+    margin-bottom:12px;
+}
+
+.report-card strong{
+    display:block;
+    margin-top:8px;
+    font-size:25px;
+    color:#16a34a;
+}
+
+.report-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:#0008;
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:100;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:550px;
+    background:white;
+    padding:20px;
+    border-radius:22px 22px 0 0;
+}
+
+.modal-box h1{
+    margin:15px 0;
+}
+
+.payment-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+}
+
+.payment-buttons button{
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:#e5e7eb;
+}
+
+.payment-buttons button.selected{
+    background:#111827;
+    color:white;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .pos-products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pos-product img,
+    .pos-product .food-icon{
+        height:100px;
+    }
+
+}
+/* ================= NOTIFICATIONS ================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.notification-button {
+    position: relative;
+
+    border: none;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+#notificationCount {
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    min-width: 19px;
+    height: 19px;
+
+    background: #e53935;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px;
+}
+
+
+.notification-panel {
+    position: fixed;
+
+    top: 70px;
+    right: 15px;
+
+    width: 340px;
+
+    max-width: calc(100% - 30px);
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.20);
+
+    z-index: 9999;
+
+    display: none;
+
+    overflow: hidden;
+}
+
+
+.notification-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.notification-header h3 {
+    margin: 0;
+}
+
+
+.notification-header button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+#notificationList {
+    max-height: 420px;
+
+    overflow-y: auto;
+}
+
+
+.notification-item {
+    padding: 14px;
+
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+}
+
+
+.notification-item:hover {
+    background: #f7f7f7;
+}
+
+
+.notification-item.unread {
+    background: #fff8e1;
+}
+
+
+.notification-item strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+
+.notification-item p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+.notification-item small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #888;
+}
+
+
+.empty-notification {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #888;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .notification-panel {
+
+        top: 65px;
+
+        right: 10px;
+
+        width: calc(100% - 20px);
+    }
+
+}
+
+/* ================= NOTIFICATIONS ================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.notification-button {
+    position: relative;
+
+    border: none;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+#notificationCount {
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    min-width: 19px;
+    height: 19px;
+
+    background: #e53935;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px;
+}
+
+
+.notification-panel {
+    position: fixed;
+
+    top: 70px;
+    right: 15px;
+
+    width: 340px;
+
+    max-width: calc(100% - 30px);
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.20);
+
+    z-index: 9999;
+
+    display: none;
+
+    overflow: hidden;
+}
+
+
+.notification-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.notification-header h3 {
+    margin: 0;
+}
+
+
+.notification-header button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+#notificationList {
+    max-height: 420px;
+
+    overflow-y: auto;
+}
+
+
+.notification-item {
+    padding: 14px;
+
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+}
+
+
+.notification-item:hover {
+    background: #f7f7f7;
+}
+
+
+.notification-item.unread {
+    background: #fff8e1;
+}
+
+
+.notification-item strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+
+.notification-item p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+.notification-item small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #888;
+}
+
+
+.empty-notification {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #888;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .notification-panel {
+
+        top: 65px;
+
+        right: 10px;
+
+        width: calc(100% - 20px);
+    }
+
+}
